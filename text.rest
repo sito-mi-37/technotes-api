@@ -1,0 +1,60 @@
+GET http://localhost:3500/users HTTP/1.1
+content-type: application/json
+
+####
+
+
+POST http://localhost:3500/users HTTP/1.1
+content-type: application/json
+
+{
+    "username": "Mac",
+    "password": "cruster123",
+    "roles": ["manager"] 
+}
+
+###
+
+PATCH http://localhost:3500/users HTTP/1.1
+content-type: application/json
+
+{
+    "id": "640dd815c2f230081d2ca422",
+    "username": "Ojyji",
+    
+    "roles": ["Employee"] ,
+    "active": false
+}
+###
+
+DELETE http://localhost:3500/users HTTP/1.1
+content-type: application/json
+
+{
+    "id" : "640dd92fc2f230081d2ca427"
+}
+
+###
+
+GET http://localhost:3500/notes HTTP/1.1
+content-type: application/json
+
+
+###
+
+POST http://localhost:3500/notes HTTP/1.1
+content-type: application/json
+
+{
+    "user" : "640e40aac4828accc12a7293",
+    "title": "free style",
+    "text" : "here's a good free style"
+}
+
+###
+PATCH http://localhost:3500/notes HTTP/1.1
+content-type: application/json
+
+###
+DELETE http://localhost:3500/notes HTTP/1.1
+content-type: application/json
