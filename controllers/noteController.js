@@ -31,6 +31,7 @@ const getAllNotes = asyncHandler(async (req, res) => {
 const createNote = asyncHandler(async (req, res) => {
     const { user, title, text } = req.body
 
+
     // Confirm data
     if (!user || !title || !text) {
         return res.status(400).json({ message: 'All fields are required' })
@@ -45,6 +46,7 @@ const createNote = asyncHandler(async (req, res) => {
 
     // Create and store the new user 
     const note = await Note.create({ user, title, text })
+
 
     if (note) { // Created 
         return res.status(201).json({ message: 'New note created' })
@@ -67,8 +69,8 @@ const updateNote = asyncHandler(async (req, res) => {
     }
 
     // Confirm note exists to update
-    const note = await Note.findOne({id}).exec()
-
+    const note = await Note.findOne({_id: id}).exec()
+ 
     if(!note){
         return res.status(400).json({message: 'No note found'})
     }
@@ -103,7 +105,7 @@ const deleteNote = asyncHandler(async (req, res) => {
     }
 
     // Confirm note exists to delete 
-    const note = Note.findById(id).exec()
+    const note = await Note.findById({_id: id}).exec()
     if(!note){
         return res.status(400).json({message: 'No note found'})
     }

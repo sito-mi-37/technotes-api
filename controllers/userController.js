@@ -124,7 +124,7 @@ const deleteUser = asyncHandler(async (req, res) => {
 
     const result = await user.deleteOne()
 
-    const reply = `Username ${result.username} with ID: ${result._id}`
+    const reply = `Username ${result.username} with ID: ${result._id} deleted`
 
     res.status(200).json(reply)
 })

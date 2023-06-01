@@ -8,8 +8,8 @@ POST http://localhost:3500/users HTTP/1.1
 content-type: application/json
 
 {
-    "username": "Mac",
-    "password": "cruster123",
+    "username": "sito",
+    "password": "listenM0re",
     "roles": ["manager"] 
 }
 
@@ -47,14 +47,53 @@ content-type: application/json
 
 {
     "user" : "640e40aac4828accc12a7293",
-    "title": "free style",
-    "text" : "here's a good free style"
+    "title": "girate",
+    "text" : "working Hands of God"
 }
 
 ###
 PATCH http://localhost:3500/notes HTTP/1.1
 content-type: application/json
 
+{
+    "user" : "640e40aac4828accc12a7293",
+    "title": "girate",
+    "text" : "working Hands of God",
+    "completed": true,
+    "id": "642d428fc2ef511bf9659e29"
+
+}
+
 ###
 DELETE http://localhost:3500/notes HTTP/1.1
 content-type: application/json
+
+{
+    "id": "642d468c23feffbf9fa48600"
+}
+
+###
+
+POST http://localhost:3500/auth HTTP/1.1
+content-type: application/json
+
+{
+    "username": "sito",
+    "password": "listenM0re"
+}
+####
+GET http://localhost:3500/auth/refresh HTTP/1.1
+content-type: application/json
+
+{
+    "username": "sito",
+    "password": "listenM0re"
+}
+###
+POST  http://localhost:3500/auth/logout HTTP/1.1
+content-type: application/json
+
+{
+    "username": "sito",
+    "password": "listenM0re"
+}
